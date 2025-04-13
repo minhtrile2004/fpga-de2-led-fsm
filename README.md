@@ -1,31 +1,36 @@
-#FPGA LED và Hiển thị 7 đoạn (FSM)
+# 🎛 LED State Machine + Message Display on DE2 Cyclone II
 
-> Thiết kế điều khiển LED và LED 7 đoạn sử dụng FSM (Finite State Machine) trên kit FPGA DE2 - Cyclone II.
+This is a Verilog-based project implemented on the DE2 Cyclone II FPGA development board. The system features a Finite State Machine (FSM) that cycles through multiple LED patterns and also displays a message ("HAPPY DAY") on the 7-segment displays under certain conditions.
 
-## 🧠 Mô tả
+## 🚀 Features
 
-- Khi bật công tắc `SW[0]`, hệ thống sẽ hiển thị dòng chữ "HAPPY DAY" trên các LED 7 đoạn (`HEX0` đến `HEX7`) theo trạng thái `ON`.
-- Khi tắt công tắc `SW[0]`, hệ thống chuyển sang trạng thái `OFF`, tắt toàn bộ LED 7 đoạn.
-- Một FSM điều khiển dãy sáng LED đỏ (`LEDR`) từ trái sang phải và ngược lại với nhịp 1s.
+- FSM with 39 defined states (`s0` to `s38`)
+- Dynamic LED pattern animation on red LEDs (`LEDR`)
+- Displays "HAPPY DAY" on all 7-segment displays when active
+- 3 clock domains:
+  - 1-second clock for FSM state change
+  - 200ms and 2s clocks available for other uses
+- Modular state control via switches
 
-## ⚙️ Mạch & Clock
+## 🎛 Controls
 
-- Clock hệ thống: `CLOCK_50` (50 MHz).
-- Bộ chia clock để tạo ra:
-  - `1s`: điều khiển LED dãy.
-  - `200ms`, `2s`: (có thể mở rộng).
-- Có tổng cộng 39 trạng thái (`s0` đến `s38`) để tạo hiệu ứng LED đẹp mắt.
+| Switch      | Function                          |
+|-------------|-----------------------------------|
+| `SW[0]`     | Reset FSM to initial state        |
 
-## 💡 Kiến thức sử dụng
+## 🖥 Output Mapping
 
-- FSM (Finite State Machine)
-- Bộ chia clock (Clock Divider)
-- LED 7 đoạn
-- Kỹ thuật ánh xạ LED trong Verilog
+- `LEDR[17:0]`: Red LED pattern based on FSM state
+- `HEX[7:0]` : 7-segment display output
+  - When in `ON` state, displays "HAPPY DAY"
+  - Otherwise, displays blanks (`OFF`)
 
-## 🖥️ Yêu cầu phần cứng
+## 📂 File Structure
 
-- Kit FPGA DE2 - Cyclone II
-- Công tắc `SW[0]`, các LED `LEDR[17:0]`, `LEDG[7:0]`, LED 7 đoạn `HEX0` đến `HEX7`
-
-
+/fpga-de2-led-fsm/
+│
+├── src/
+│   └── bai9.v
+├
+├── README.md
+└── .gitignore
