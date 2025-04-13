@@ -29,8 +29,9 @@ This is a Verilog-based project implemented on the DE2 Cyclone II FPGA developme
 
 /fpga-de2-led-fsm/
 │
-├── src/
+├── main/
 │   └── bai9.v
-├
-├── README.md
-└── .gitignore
+|   └── doc
+|        └──  
+|   └── README.md
+
