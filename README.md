@@ -47,7 +47,7 @@ This is a Verilog-based project implemented on the DE2 Cyclone II FPGA developme
 
 ## 🧑‍💻 Author
 
-**Le Minh Tri**  
+**Le Minh Tri - 3rd Year Computer Engineering Student**  
 📧 minhtri.lmt2004@gmail.com
 🌐 [GitHub Profile](https://github.com/minhtrile2004)
 
