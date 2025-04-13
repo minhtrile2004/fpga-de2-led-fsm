@@ -32,6 +32,27 @@ This is a Verilog-based project implemented on the DE2 Cyclone II FPGA developme
 ├── main/
 │   └── bai9.v
 |   └── doc
-|        └──  
+|        └── schematic.png
+|        └── current_state.png
 |   └── README.md
 
+
+## 💡 How It Works
+
+- The FSM has two main modes:
+  - **LED animation mode**: Cycles through predefined LED patterns
+  - **Message display mode**: Displays "HAPPY DAY" across all 7-segment displays
+- The state machine advances every second, based on a clock divider from the 50MHz system clock.
+- Reset switch (`SW[0]`) can bring the system back to the initial OFF state.
+
+## 🧑‍💻 Author
+
+**Le Minh Tri**  
+📧 minhtri.lmt2004@gmail.com
+🌐 [GitHub Profile](https://github.com/minhtrile2004)
+
+## 📄 License
+
+This project is licensed under the MIT License. See the `LICENSE` file for more details.
+
+   
